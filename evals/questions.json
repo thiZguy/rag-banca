@@ -1,0 +1,7 @@
+[
+  { "id": "q01", "pregunta": "Que pasa si un usuario no sabe manejar una computadora y el unico canal de comunicación es el teléfono?", "doc_esperado": "ran-1-8", "seccion_esperada": "5.1", "debe_responder": true },
+  { "id": "q02", "pregunta": "Se permite el uso de pagos p2p mediante modulos NFC? entregados por proveedores de Servicios de Iniciación de Pagos?", "doc_esperado": "ley-21521", "seccion_esperada": "Art. 20", "debe_responder": true },
+  { "id": "q03", "pregunta": "Se considera fraude o error si el usuario autoriza un pago en una tienda en linea que no es la que el busca? (capa 8)", "doc_esperado": "ley-20009", "seccion_esperada": "Art. 7", "debe_responder": true },
+  { "id": "q04", "pregunta": "Se considera discriminacion entre instituciones financieras cuando una institucion \"A\" opta por no autorizar transacciones a una institucion \"B\" por sospechas / rumores publicos de malversacion o se encuentre en un caso similar de controversia?", "doc_esperado": "ley-21521", "seccion_esperada": "Art. 26", "debe_responder": true },
+  { "id": "q05", "pregunta": "holis", "doc_esperado": "", "seccion_esperada": "", "debe_responder": false }
+]
