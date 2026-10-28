@@ -1,8 +1,7 @@
-import { readFile } from "node:fs/promises";
 import { guardarDocumento } from "../busqueda/repositorio.js";
 import { chunkDocumento } from "../chunking/chunk-documento.js";
 import { cargarConfig } from "../config/config.js";
-import { CARPETA_CORPUS, cargarManifest } from "../corpus/manifest.js";
+import { cargarManifest, leerPdfDelCorpus } from "../corpus/manifest.js";
 import { conectar } from "../db/conectar.js";
 import { crearEmbedderVoyage } from "../embeddings/embedder-voyage.js";
 import { extraerPaginas } from "../extraccion/extraer-paginas.js";
@@ -14,9 +13,11 @@ const embedder = crearEmbedderVoyage(config.VOYAGE_API_KEY);
 try {
   const manifest = await cargarManifest();
   console.log(`Corpus con Fecha de corte ${manifest.fechaDeCorte}: ${manifest.documentos.length} Documentos`);
+  // Verifica todos los hashes antes de embeber: un PDF que no calza falla sin gastar en Voyage.
+  const pdfs = await Promise.all(manifest.documentos.map(leerPdfDelCorpus));
   let total = 0;
-  for (const documento of manifest.documentos) {
-    const paginas = await extraerPaginas(await readFile(new URL(documento.archivo, CARPETA_CORPUS)));
+  for (const [i, documento] of manifest.documentos.entries()) {
+    const paginas = await extraerPaginas(pdfs[i]!);
     const chunks = chunkDocumento(documento, paginas);
     const { archivo: _, ...guardado } = documento;
     await guardarDocumento(sql, embedder, guardado, chunks);

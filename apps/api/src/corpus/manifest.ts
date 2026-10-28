@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { z } from "zod";
 import { TIPOS_DE_DOCUMENTO } from "../chunking/chunk-documento.js";
@@ -25,4 +26,15 @@ export type DocumentoDelManifest = Manifest["documentos"][number];
 
 export async function cargarManifest(): Promise<Manifest> {
   return esquema.parse(JSON.parse(await readFile(new URL("manifest.json", CARPETA_CORPUS), "utf8")));
+}
+
+// El hash del manifest es la foto fechada del Corpus: si el PDF cambió sin actualizarlo,
+// la base guardaría un hash que no describe lo que se embebió.
+export async function leerPdfDelCorpus(documento: DocumentoDelManifest): Promise<Uint8Array> {
+  const pdf = await readFile(new URL(documento.archivo, CARPETA_CORPUS));
+  const hash = createHash("sha256").update(pdf).digest("hex");
+  if (hash !== documento.hash) {
+    throw new Error(`${documento.archivo} no calza con el hash del manifest (manifest ${documento.hash}, PDF ${hash})`);
+  }
+  return pdf;
 }
