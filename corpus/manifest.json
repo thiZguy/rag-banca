@@ -1,0 +1,15 @@
+{
+  "fechaDeCorte": "2026-10-28",
+  "documentos": [
+    {
+      "id": "ley-20009",
+      "titulo": "Ley 20.009",
+      "emisor": "Congreso Nacional",
+      "tipo": "ley",
+      "fecha": "2024-05-30",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=236736",
+      "archivo": "raw/ley-20009.pdf",
+      "hash": "a93d2dc6af0f20fd8d496b10dda7cd01764f63f112802cb6a672322348723f9e"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "rag-banca",
+  "private": true,
+  "type": "module",
+  "workspaces": ["apps/*"],
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "db:up": "docker compose up -d --wait",
+    "db:migrate": "npm run db:migrate -w apps/api",
+    "ingest": "npm run ingest -w apps/api --",
+    "ask": "npm run ask -w apps/api --",
+    "test": "npm test -w apps/api",
+    "typecheck": "npm run typecheck -w apps/api"
+  }
+}
