@@ -1,0 +1,25 @@
+{
+  "name": "@rag-banca/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:migrate": "tsx src/db/migrate.ts",
+    "ingest": "tsx src/cli/ingest.ts",
+    "ask": "tsx src/cli/ask.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "postgres": "^3.4.9",
+    "unpdf": "^1.7.0",
+    "voyageai": "^0.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

@@ -12,7 +12,7 @@ Read `docs/PLAN.md` before planning or scoping work: it holds the 4-week plan, w
 
 ## Stack
 
-TypeScript end to end: React + Vite front (`apps/web`), Node API (`apps/api`, which also owns ingestion and evals), Postgres + pgvector in Docker Compose, Claude API for generation. Corpus PDFs live in `corpus/raw/`, eval cases in `evals/questions.json`. Keep it a simple monorepo; add shared packages only when duplication forces it.
+TypeScript end to end: React + Vite front (`apps/web`), Node API (`apps/api`, which also owns ingestion and evals), Postgres + pgvector in Docker Compose, Gemini API free tier for generation (ADR 0005; model set via env var, generation behind one function so the provider can change). Corpus PDFs live in `corpus/raw/`, eval cases in `evals/questions.json`. Keep it a simple monorepo; add shared packages only when duplication forces it. Integration tests talk to the real Postgres, so run `npm run db:up` (Docker via Colima) before `npm test`.
 
 ## Workflow
 
