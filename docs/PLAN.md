@@ -40,7 +40,7 @@ El almacén es Postgres + pgvector en Docker local; el hosting de la demo se dec
 | Front | React + TypeScript + Vite | Streaming de la respuesta y panel de citas |
 | API | Node + TypeScript (Hono o Express) | Un endpoint: `POST /api/ask` |
 | Embeddings | Modelo multilingüe, a elegir con `/research` | Debe rendir bien en español |
-| LLM | Claude API | Prompt que exige citar `[n]` o abstenerse |
+| LLM | Gemini API, free tier (ADR 0005) | Prompt que exige citar `[n]` o abstenerse; plan B: Claude Haiku 5.5 pagado |
 | Almacén | Postgres + pgvector en Docker local | Decidido; se registra como ADR en la Semana 1 |
 
 ### Decisión: almacenamiento vectorial
@@ -191,7 +191,9 @@ Exporta este documento a Markdown y déjalo como `docs/PLAN.md` para que el agen
 | --- | --- |
 | PDFs con tablas o escaneados que se extraen mal | Elegir documentos con texto seleccionable; descartar los que no |
 | La normativa cambia y la demo queda desactualizada | Mostrar la fecha de cada documento en la cita; el corpus es una foto fechada |
-| Costo de API en la demo pública | Límite de preguntas por IP y modelo económico para la demo |
+| Costo de API en la demo pública | Gemini free tier (costo cero) y límite de preguntas por IP |
+| La cuota gratuita de Gemini se agota o se recorta sin aviso | Mensaje claro al usuario; plan B: Claude Haiku 5.5 con límite de gasto |
+| En el free tier, Google usa prompts y respuestas para entrenar | Aviso visible en la demo: no ingresar datos confidenciales |
 | Perder foco agregando features | Lo que no está en el plan va a una lista de "después del MVP" |
 | Que parezca asesoría legal | Aviso visible: herramienta de consulta, no reemplaza revisión legal |
 
