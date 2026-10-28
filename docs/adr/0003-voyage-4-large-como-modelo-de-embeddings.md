@@ -1,0 +1,3 @@
+# voyage-4-large (1024 dims) como modelo de embeddings
+
+Los Chunks se embeben con `voyage-4-large` a 1024 dimensiones (`inputType: "document"` en la ingesta, `"query"` en la consulta), guardados en `vector(1024)` junto al nombre del modelo que los generó. Lidera en retrieval legal y financiero no inglés y su límite de 32k tokens no corta Chunks, pero queda último en MIRACL-es, así que la decisión es provisional: en la Semana 3 se compara contra `text-embedding-3-small` con nuestro Hit@5. Se descartó multilingual-e5 como modelo principal porque trunca a 512 tokens. Detalle y fuentes en `docs/research/embeddings.md`.
