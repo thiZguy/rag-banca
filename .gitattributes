@@ -1,0 +1,2 @@
+# Los PDFs del Corpus se verifican por SHA-256: git no debe tocar sus bytes (fin de línea, diffs de texto).
+*.pdf binary

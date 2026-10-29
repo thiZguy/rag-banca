@@ -10,6 +10,156 @@
       "url": "https://www.bcn.cl/leychile/navegar?idNorma=236736",
       "archivo": "raw/ley-20009.pdf",
       "hash": "a93d2dc6af0f20fd8d496b10dda7cd01764f63f112802cb6a672322348723f9e"
+    },
+    {
+      "id": "ncg-538",
+      "titulo": "NCG 538",
+      "emisor": "CMF",
+      "tipo": "ncg",
+      "fecha": "2025-06-17",
+      "url": "https://www.cmfchile.cl/normativa/ncg_538_2025.pdf",
+      "archivo": "raw/ncg-538.pdf",
+      "hash": "f6a3cb7c20ee2d447cb091d17b2a9ec48a842072add6cd85efc28fd4a6e81adf"
+    },
+    {
+      "id": "ncg-568",
+      "titulo": "NCG 568",
+      "emisor": "CMF",
+      "tipo": "ncg",
+      "fecha": "2026-06-01",
+      "url": "https://www.cmfchile.cl/normativa/ncg_568_2026.pdf",
+      "archivo": "raw/ncg-568.pdf",
+      "hash": "556d052b115e6344e1dc66c7c25ecba999a6dcb26a8a7ce7670f711c78fd65d0"
+    },
+    {
+      "id": "ran-1-7",
+      "titulo": "RAN Capítulo 1-7",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2026-01-30",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28893_doc_pdf.pdf",
+      "archivo": "raw/ran-1-7.pdf",
+      "hash": "eb46c2f41c2a893c4a850987e2d35e9dda7cf3adbf466f7a20249bd90174596e"
+    },
+    {
+      "id": "ran-8-41",
+      "titulo": "RAN Capítulo 8-41",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2025-07-23",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28944_doc_pdf.pdf",
+      "archivo": "raw/ran-8-41.pdf",
+      "hash": "9dbd1f5971e1d22ca78ff05e672e76dbbe3a88448591966608cc11f28fc52e81"
+    },
+    {
+      "id": "sernac-dictamen-fraude-medios-pago",
+      "titulo": "Dictamen SERNAC sobre fraude en medios de pago",
+      "emisor": "SERNAC",
+      "tipo": "dictamen",
+      "fecha": "2026-02-24",
+      "url": "https://www.sernac.cl/portal/618/articles-88180_archivo_01.pdf",
+      "archivo": "raw/sernac-dictamen-fraude-medios-pago.pdf",
+      "hash": "8b9caedc869f560382435e775d852d22608fc799108f19a76c5c33d97de6bb33"
+    },
+    {
+      "id": "dfl-3-2021-ley-19496",
+      "titulo": "Ley 19.496 (DFL 3)",
+      "emisor": "Ministerio de Economía",
+      "tipo": "ley",
+      "fecha": "2025-07-11",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=1160403",
+      "archivo": "raw/dfl-3-2021-ley-19496.pdf",
+      "hash": "bf5145073ca716a98ba679310c78706067bc56cd5ef8b6666649b2ebb270a121"
+    },
+    {
+      "id": "ran-1-8",
+      "titulo": "RAN Capítulo 1-8",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2025-08-01",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28894_doc_pdf.pdf",
+      "archivo": "raw/ran-1-8.pdf",
+      "hash": "6ac2eb5375d26558d1cf0a1535a4d96937257fc276f0e547fab8dc4ce56639d5"
+    },
+    {
+      "id": "ds-41-2012-sello-sernac",
+      "titulo": "Decreto 41 (Sello SERNAC)",
+      "emisor": "Ministerio de Economía",
+      "tipo": "decreto",
+      "fecha": "2012-07-01",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=1041742",
+      "archivo": "raw/ds-41-2012-sello-sernac.pdf",
+      "hash": "d7d2575305270f019a6871bd78cb6976be80143266d604050a02e8e96d6085f0"
+    },
+    {
+      "id": "ran-20-10",
+      "titulo": "RAN Capítulo 20-10",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2020-07-06",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-29310_doc_pdf.pdf",
+      "archivo": "raw/ran-20-10.pdf",
+      "hash": "46e2d3ef22b91a3c4ffcaeee7a39ed76283160942bf8f476af6bd305c8769a1c"
+    },
+    {
+      "id": "ran-1-13",
+      "titulo": "RAN Capítulo 1-13",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2026-07-14",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28898_doc_pdf.pdf",
+      "archivo": "raw/ran-1-13.pdf",
+      "hash": "817fdb432d63d6d5199c83b5ed01b42834ad7def5c469231614a48108ff535ac"
+    },
+    {
+      "id": "ran-20-7",
+      "titulo": "RAN Capítulo 20-7",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2019-12-23",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28982_doc_pdf.pdf",
+      "archivo": "raw/ran-20-7.pdf",
+      "hash": "6cb5183639cf45abcb38c9cb467b294b7cfa14842e4ea504be20d65b9a97b5ff"
+    },
+    {
+      "id": "ran-20-8",
+      "titulo": "RAN Capítulo 20-8",
+      "emisor": "CMF",
+      "tipo": "ran",
+      "fecha": "2024-07-25",
+      "url": "https://www.cmfchile.cl/portal/normativa/624/articles-28983_doc_pdf.pdf",
+      "archivo": "raw/ran-20-8.pdf",
+      "hash": "d9fd08bd1df0ecefa22259119592b68474ad0db3875a1887f8a166df3c183d4d"
+    },
+    {
+      "id": "ley-21521",
+      "titulo": "Ley 21.521",
+      "emisor": "Congreso Nacional",
+      "tipo": "ley",
+      "fecha": "2023-02-03",
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=1187323",
+      "archivo": "raw/ley-21521.pdf",
+      "hash": "90c66cbdcce3c0aa24d2e7d4fc3649fe484b01f9f1f6d6d2b9df2152a9b5cb92"
+    },
+    {
+      "id": "ncg-514",
+      "titulo": "NCG 514",
+      "emisor": "CMF",
+      "tipo": "ncg",
+      "fecha": "2024-07-03",
+      "url": "https://www.cmfchile.cl/normativa/ncg_514_2024.pdf",
+      "archivo": "raw/ncg-514.pdf",
+      "hash": "fd500365127c59fbf8e307d9fd43f111d386e3c909513bf13a3a4d8f45d15b9f"
+    },
+    {
+      "id": "ncg-569",
+      "titulo": "NCG 569",
+      "emisor": "CMF",
+      "tipo": "ncg",
+      "fecha": "2026-06-01",
+      "url": "https://www.cmfchile.cl/normativa/ncg_569_2026.pdf",
+      "archivo": "raw/ncg-569.pdf",
+      "hash": "8e3bed9162ac26bb6e1123951311978c4a501b95d7e7fd0191746ddce97e24f3"
     }
   ]
 }
