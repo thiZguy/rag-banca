@@ -39,7 +39,7 @@ export function crearBuscador(sql: Sql, embedder: Embedder) {
         WHERE c.modelo = ${embedder.modelo}
         ORDER BY c.embedding <=> ${vector}::vector
         LIMIT 5`;
-      return filas.map((f, i) => ({ ...f, posicion: i + 1 }));
+      return filas.map((f, i) => ({ posicion: i + 1, ...f }));
     },
   };
 }
