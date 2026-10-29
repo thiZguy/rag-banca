@@ -25,7 +25,20 @@ export type Manifest = z.infer<typeof esquema>;
 export type DocumentoDelManifest = Manifest["documentos"][number];
 
 export async function cargarManifest(): Promise<Manifest> {
-  return esquema.parse(JSON.parse(await readFile(new URL("manifest.json", CARPETA_CORPUS), "utf8")));
+  return parsearManifest(JSON.parse(await readFile(new URL("manifest.json", CARPETA_CORPUS), "utf8")));
+}
+
+// Con 16 Documentos, "documentos[7].fecha" obliga a contar: cada error nombra el id del Documento.
+export function parsearManifest(json: unknown): Manifest {
+  const resultado = esquema.safeParse(json);
+  if (resultado.success) return resultado.data;
+  const documentos = (json as { documentos?: { id?: unknown }[] }).documentos;
+  const errores = resultado.error.issues.map(({ path, message }) => {
+    if (path[0] !== "documentos" || typeof path[1] !== "number") return `- ${path.join(".") || "manifest"}: ${message}`;
+    const id = documentos?.[path[1]]?.id ?? `documento ${path[1] + 1}`;
+    return `- ${String(id)} → ${path.slice(2).join(".")}: ${message}`;
+  });
+  throw new Error(`corpus/manifest.json no es válido:\n${errores.join("\n")}`);
 }
 
 // El hash del manifest es la foto fechada del Corpus: si el PDF cambió sin actualizarlo,
@@ -34,7 +47,7 @@ export async function leerPdfDelCorpus(documento: DocumentoDelManifest): Promise
   const pdf = await readFile(new URL(documento.archivo, CARPETA_CORPUS));
   const hash = createHash("sha256").update(pdf).digest("hex");
   if (hash !== documento.hash) {
-    throw new Error(`${documento.archivo} no calza con el hash del manifest (manifest ${documento.hash}, PDF ${hash})`);
+    throw new Error(`${documento.id}: ${documento.archivo} no calza con el hash del manifest (manifest ${documento.hash}, PDF ${hash})`);
   }
   return pdf;
 }

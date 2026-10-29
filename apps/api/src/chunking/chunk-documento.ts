@@ -1,5 +1,7 @@
 export const TIPOS_DE_DOCUMENTO = ["ley", "decreto", "ran", "ncg", "circular", "dictamen"] as const;
 export type TipoDocumento = (typeof TIPOS_DE_DOCUMENTO)[number];
+// Los únicos tipos cuyas Secciones sabe detectar chunkDocumento; RAN, NCG y dictámenes esperan sus reglas (#9).
+export const TIPOS_CON_ARTICULOS: readonly TipoDocumento[] = ["ley", "decreto"];
 
 export type DocumentoAChunkear = {
   id: string;

@@ -1,5 +1,5 @@
 import { guardarDocumento } from "../busqueda/repositorio.js";
-import { chunkDocumento } from "../chunking/chunk-documento.js";
+import { chunkDocumento, TIPOS_CON_ARTICULOS } from "../chunking/chunk-documento.js";
 import { cargarConfig } from "../config/config.js";
 import { cargarManifest, leerPdfDelCorpus } from "../corpus/manifest.js";
 import { conectar } from "../db/conectar.js";
@@ -15,9 +15,12 @@ try {
   console.log(`Corpus con Fecha de corte ${manifest.fechaDeCorte}: ${manifest.documentos.length} Documentos`);
   // Verifica todos los hashes antes de embeber: un PDF que no calza falla sin gastar en Voyage.
   const pdfs = await Promise.all(manifest.documentos.map(leerPdfDelCorpus));
+  const aIngestar = manifest.documentos.filter((d) => TIPOS_CON_ARTICULOS.includes(d.tipo));
+  const omitidos = manifest.documentos.filter((d) => !aIngestar.includes(d));
+  if (omitidos.length > 0) console.log(`  Se omiten por ahora (sin reglas de Secciones): ${omitidos.map((d) => d.id).join(", ")}`);
   let total = 0;
-  for (const [i, documento] of manifest.documentos.entries()) {
-    const paginas = await extraerPaginas(pdfs[i]!);
+  for (const documento of aIngestar) {
+    const paginas = await extraerPaginas(pdfs[manifest.documentos.indexOf(documento)]!);
     const chunks = chunkDocumento(documento, paginas);
     const { archivo: _, ...guardado } = documento;
     await guardarDocumento(sql, embedder, guardado, chunks);
