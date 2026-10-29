@@ -3,9 +3,11 @@ import { cargarConfig } from "../config/config.js";
 import { conectar } from "../db/conectar.js";
 import { crearEmbedderVoyage } from "../embeddings/embedder-voyage.js";
 
-const pregunta = process.argv.slice(2).join(" ").trim();
+const argumentos = process.argv.slice(2);
+const comoJson = argumentos.includes("--json");
+const pregunta = argumentos.filter((a) => a !== "--json").join(" ").trim();
 if (!pregunta) {
-  console.error('Uso: npm run ask -- "pregunta"');
+  console.error('Uso: npm run ask -- [--json] "pregunta"');
   process.exit(1);
 }
 
@@ -14,7 +16,9 @@ const sql = conectar(config.DATABASE_URL);
 
 try {
   const resultados = await crearBuscador(sql, crearEmbedderVoyage(config.VOYAGE_API_KEY)).buscar(pregunta);
-  for (const r of resultados) {
+  // El mismo formato que consumen eval:retrieval y la API de la Semana 2.
+  if (comoJson) console.log(JSON.stringify(resultados, null, 2));
+  else for (const r of resultados) {
     const paginas = r.paginaInicio === r.paginaFin ? `p. ${r.paginaInicio}` : `pp. ${r.paginaInicio}-${r.paginaFin}`;
     console.log(`\n${r.posicion}. [${r.puntaje.toFixed(3)}] ${r.titulo} (${r.fecha}) · ${r.seccion} · ${paginas}`);
     console.log(`   ${r.ruta}`);

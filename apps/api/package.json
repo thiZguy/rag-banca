@@ -6,6 +6,7 @@
     "db:migrate": "tsx src/db/migrate.ts",
     "ingest": "tsx src/cli/ingest.ts",
     "ask": "tsx src/cli/ask.ts",
+    "eval:retrieval": "tsx src/cli/eval-retrieval.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
